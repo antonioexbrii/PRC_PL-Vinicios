@@ -1,8 +1,11 @@
 <template>
   <v-container class="container1" column>
-    <div class="headline">
-      {{ province.provinceName }}, {{ province.countryName }}
-    </div>
+    <v-sheet class="ma-2 pa-3" elevation="12" color="rgb(255, 255, 255,0.6)">
+      <div class="display-4">
+        List of wines from {{ province.provinceName }},
+        {{ province.countryName }}
+      </div>
+    </v-sheet>
     <v-layout row wrap justify-center>
       <v-flex
         xs3
@@ -10,9 +13,9 @@
         v-bind:key="wine.wine.value"
         class="flex1"
       >
-        <v-card height="100%">
+        <v-card height="100%" style="background-color: rgb(249, 94, 94,0.7)">
           <v-card-title>
-            <div class="subheading">{{ wine.wnnm.value }}</div>
+            <div class="headline">{{ wine.wnnm.value }}</div>
           </v-card-title>
 
           <v-card-actions>
@@ -59,7 +62,6 @@ export default {
 
 <style scoped>
 .container1 {
-  background-color: white;
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 100px;

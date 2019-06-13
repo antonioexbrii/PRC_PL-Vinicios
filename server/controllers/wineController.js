@@ -19,16 +19,19 @@ async function execQuery(query) {
 
 Wine.listWines = () => {
   const query = `PREFIX : <http://prc.di.uminho.pt/2019/a75870/>
-    select ?w ?wine ?province where {
+    select ?w ?wine ?province ?points ?price where {
         ?w a :Wine.
         ?w :title ?wine.
+        ?r :isReviewOf ?w.
+        ?r :points ?points.
+        ?w :price ?price
     }
-    order by asc(?w) ?wine`;
+    order by desc(?points) ?w`;
   return execQuery(query);
 };
 Wine.getByID = id => {
   const query = `PREFIX : <http://prc.di.uminho.pt/2019/a75870/>
-    select ?tit where {
+    select * where {
       :${id} :title ?tit.
     }`;
   return execQuery(query);

@@ -1,15 +1,16 @@
 <template>
-  <v-toolbar app class="toolb">
+  <v-toolbar app color="rgb(224, 158, 96)">
     <v-toolbar-title class="headline text-uppercase">
       <span>Vinícios</span>
       <span class="font-weight-light">wine reviews</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn @click="$router.push('/')" flat>Home</v-btn>
-    <v-btn @click="$router.push('/wines')" flat>Wines</v-btn>
-    <v-btn @click="$router.push('/wineries')" flat>Wineries</v-btn>
-    <v-btn @click="$router.push('/countries')" flat>Country Listing</v-btn>
-    <v-btn @click="$router.push('/about')" flat>About</v-btn>
+    <v-btn outline large @click="$router.push('/')">Home</v-btn>
+    <v-btn outline large @click="$router.push('/wines')">Wines</v-btn>
+    <v-btn outline large @click="$router.push('/countries')"
+      >Country Listing</v-btn
+    >
+    <v-btn outline large @click="$router.push('/about')">About</v-btn>
   </v-toolbar>
 </template>
 
@@ -31,4 +32,8 @@ export default {
   }
 };
 </script>
-<style scoped></style>
+<style scoped>
+.toolb {
+  background-color: saddlebrown;
+}
+</style>

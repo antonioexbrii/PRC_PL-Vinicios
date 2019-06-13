@@ -13,9 +13,9 @@
           <v-sheet>
             <v-icon large>mdi-bottle-wine</v-icon>
             <div class="headline">Wine Listing</div>
-            <v-btn outline @click="btnClick(winery.wn.value)">{{
-              winery.wtit.value
-            }}</v-btn>
+            <v-btn outline @click="btnClick(winery.wn.value)">
+              {{ winery.wtit.value }}
+            </v-btn>
           </v-sheet>
           <v-divider></v-divider>
         </v-container>
@@ -60,7 +60,6 @@ export default {
 
 <style scoped>
 .container1 {
-  background-color: white;
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 100px;

@@ -10,7 +10,6 @@ async function execQuery(query) {
     resp.data.results.bindings.forEach(element => {
       var flag = false;
       var id = element.prov.value.split('/').reverse()[0];
-      console.log(id);
       for (var i = 0; i < jsonLst.length; i++) {
         if (jsonLst[i].country === element.ctn.value) {
           jsonLst[i].provinces.push({ name: element.provnm.value, id: id });
@@ -20,6 +19,7 @@ async function execQuery(query) {
       if (!flag) {
         jsonLst.push({
           country: element.ctn.value,
+          countryKey: element.ctk.value,
           provinces: [{ name: element.provnm.value, id: id }]
         });
       }
@@ -35,6 +35,7 @@ Country.listCountries = () => {
       select * where {
           ?s a :Country.
           ?s :countryName ?ctn.
+          ?s :countryKey ?ctk.
           ?s :hasProvince ?prov.
           ?prov :provinceName ?provnm.
       }`;

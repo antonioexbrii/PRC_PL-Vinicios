@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <AppBar />
-    <router-view />
+    <v-container class="container1">
+      <router-view />
+    </v-container>
     <Footer />
   </v-app>
 </template>
@@ -17,3 +19,10 @@ export default {
   }
 };
 </script>
+<style>
+.container1 {
+  background-image: url('~@/assets/bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+</style>
