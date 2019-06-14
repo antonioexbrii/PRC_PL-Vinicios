@@ -1,0 +1,248 @@
+@prefix : <http://prc.di.uminho.pt/2019/a75870/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://prc.di.uminho.pt/2019/a75870/> .
+
+<http://prc.di.uminho.pt/2019/a75870/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://prc.di.uminho.pt/2019/a75870/countryHasWine
+:countryHasWine rdf:type owl:ObjectProperty ;
+                owl:inverseOf :isFrom ;
+                rdfs:domain :Country ;
+                rdfs:range :Wine .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/fromCountry
+:fromCountry rdf:type owl:ObjectProperty ;
+             owl:inverseOf :hasProvince ;
+             rdfs:domain :Province ;
+             rdfs:range :Country .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/fromProvince
+:fromProvince rdf:type owl:ObjectProperty ;
+              owl:inverseOf :isOriginOf ;
+              rdfs:domain :Wine ;
+              rdfs:range :Province .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/fromWinery
+:fromWinery rdf:type owl:ObjectProperty ;
+            owl:inverseOf :hasWine ;
+            rdfs:domain :Wine ;
+            rdfs:range :Winery .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/hasCountry
+:hasCountry rdf:type owl:ObjectProperty ;
+            owl:inverseOf :hasWinery .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/hasProvince
+:hasProvince rdf:type owl:ObjectProperty .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/hasReview
+:hasReview rdf:type owl:ObjectProperty ;
+           owl:inverseOf :isReviewOf ;
+           rdfs:domain :Wine ;
+           rdfs:range :Review .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/hasTaster
+:hasTaster rdf:type owl:ObjectProperty ;
+           owl:inverseOf :tastedWine ;
+           rdfs:domain :Wine ;
+           rdfs:range :Taster .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/hasWine
+:hasWine rdf:type owl:ObjectProperty .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/hasWinery
+:hasWinery rdf:type owl:ObjectProperty ;
+           rdfs:domain :Country ;
+           rdfs:range :Winery .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/isFrom
+:isFrom rdf:type owl:ObjectProperty .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/isOriginOf
+:isOriginOf rdf:type owl:ObjectProperty .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/isReviewOf
+:isReviewOf rdf:type owl:ObjectProperty .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/tastedWine
+:tastedWine rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://prc.di.uminho.pt/2019/a75870/countryName
+:countryName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Country ;
+             rdfs:range xsd:string .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/description
+:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Review ;
+             rdfs:range xsd:string .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/designation
+:designation rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Wine ;
+             rdfs:range xsd:string .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/points
+:points rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Review ;
+        rdfs:range xsd:integer .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/price
+:price rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Wine ;
+       rdfs:range xsd:float .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/provinceName
+:provinceName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Province ;
+              rdfs:range xsd:string .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/region_1
+:region_1 rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Wine ;
+          rdfs:range xsd:string .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/region_2
+:region_2 rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Wine ;
+          rdfs:range xsd:string .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/taster_name
+:taster_name rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Taster ;
+             rdfs:range xsd:string .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/taster_twitter_handle
+:taster_twitter_handle rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Taster ;
+                       rdfs:range xsd:string .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/title
+:title rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Wine ;
+       rdfs:range xsd:string .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/variety
+:variety rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Wine ;
+         rdfs:range xsd:string .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/wineryName
+:wineryName rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Winery ;
+            rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://prc.di.uminho.pt/2019/a75870/Country
+:Country rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/Province
+:Province rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/Review
+:Review rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/Taster
+:Taster rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/Wine
+:Wine rdf:type owl:Class .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/Winery
+:Winery rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#namedIndividual
+owl:namedIndividual rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://prc.di.uminho.pt/2019/a75870/California
+:California rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/Cooperativa_de_Valpaços
+:Cooperativa_de_Valpaços rdf:type owl:NamedIndividual ,
+                                  :Winery ;
+                         :hasWine <http://prc.di.uminho.pt/2019/a75870/Chateau_d'Ax> .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/Parlaplie_2_FSKJ
+:Parlaplie_2_FSKJ rdf:type owl:NamedIndividual ,
+                           :Wine ,
+                           owl:namedIndividual ;
+                  :fromProvince :California ;
+                  :isFrom :US ;
+                  :price "12" ;
+                  :region_1 "Central Coast" ;
+                  :region_2 "Central Coast" ;
+                  :title "Parlaplie 2 FSKJ" ;
+                  :variety "Chardonnay" ;
+                  :fromWinery "Mirassou" .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/US
+:US rdf:type owl:NamedIndividual .
+
+
+###  http://prc.di.uminho.pt/2019/a75870/Chateau_d'Ax
+<http://prc.di.uminho.pt/2019/a75870/Chateau_d'Ax> rdf:type owl:NamedIndividual ,
+                                                            :Wine ;
+                                                   :fromWinery :Cooperativa_de_Valpaços ;
+                                                   :price 17 ;
+                                                   :region_1 "Cote du Sur" ;
+                                                   :region_2 "Almagnac" ;
+                                                   :taster_name "Paul É'Clair" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
